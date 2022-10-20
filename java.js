@@ -31,18 +31,18 @@ function reloadGrid(currentSize) {
 function clearGrid(){
   grid.innerHTML = ''
 }
+
 function setupGrid(size) {
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
   grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
   for (let i = 0; i < size * size; i++) {
     const gridElement = document.createElement('div')
-    gridElement.classList.add('grid-element')
+    gridElement.classList.add('gridElement')
+    gridElement.setAttribute('id', 'cube')
     grid.appendChild(gridElement)
+    let gridItem = document.querySelectorAll('cube');
+    gridItem[i].addEventListener('click', console.log('yee'))
   }
 }
-setupGrid()
-const gridE = document.querySelector('grid-element')
-gridE.addEventListener('click', function handleClick(){
-gridE.Classlist.add('background-color:blue;')
-})
+

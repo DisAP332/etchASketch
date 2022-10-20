@@ -25,11 +25,8 @@
   div {
     display:block;
   }
-  .grid-element{
+  .gridElement{
     user-select: none;
-  }
-  .griditem:hover {
-    background-color:blue;
   }
   #body {
     background-color:gainsboro;
