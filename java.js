@@ -1,4 +1,5 @@
-const DEFAULT_SIZE = 16
+const DEFAULT_SIZE = 0
+let color = 'black';
 
 let currentSize = DEFAULT_SIZE
 
@@ -37,12 +38,19 @@ function setupGrid(size) {
   grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
   for (let i = 0; i < size * size; i++) {
-    const gridElement = document.createElement('div')
+    let gridElement = document.createElement('div')
     gridElement.classList.add('gridElement')
-    gridElement.setAttribute('id', 'cube')
+    gridElement.setAttribute('name', 'cube' + [i])
+    gridElement.addEventListener('mouseover', colorSquare)
+    
+    
+    //let gridElementArray = []
+    //gridElementArray.push(document.getElementsByName(gridElement[i]))
     grid.appendChild(gridElement)
-    let gridItem = document.querySelectorAll('cube');
-    gridItem[i].addEventListener('click', console.log('yee'))
-  }
+    //console.log(gridElementArray);
+  } 
 }
 
+function colorSquare() {
+  this.style.backgroundColor = color;
+}
